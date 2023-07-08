@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"required": ["name", "version"],
+	"properties": {
+		"name": {
+			"type": "string",
+			"pattern": "^[0-9a-z\\.-]+\\.[0-9a-z\\.-]+$"
+		},
+		"description": {
+			"type": "string",
+			"pattern": "[\\S].*[\\S]"
+		},
+		"version": {
+			"type": "string",
+			"pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+		},
+		"image": {
+			"type": "string"
+		},
+		"srcDir": {
+			"type": "string",
+			"default": "proto"
+		},
+		"depsDir": {
+			"type": "string",
+			"default": "vendor"
+		},
+		"dependencies": {
+			"type": "object",
+			"patternProperties": {
+				".*": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
